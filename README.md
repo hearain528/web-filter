@@ -33,3 +33,8 @@
         <url-pattern>*</url-pattern>
     </filter-mapping>
 ```
+
+2. 参数说明：
+
+excludePages:值为不需要验证的页面地址
+allowIp：当值为*
