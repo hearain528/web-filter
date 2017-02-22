@@ -40,6 +40,7 @@ public class ViewFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
         PrintWriter pw = null;
 
+
         Boolean isExcludePage = false;
         for (String page : excludedPageArray) {//判断是否在过滤url之外
             if(req.getServletPath().equals(page)){
@@ -92,6 +93,9 @@ public class ViewFilter implements Filter {
         }
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)   || "null".equalsIgnoreCase(ip)) {
             ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)   || "null".equalsIgnoreCase(ip)){
+            ip = request.getHeader("X-Real-IP");
         }
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)    || "null".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
